@@ -1,0 +1,20 @@
+{
+    "color_sales": {
+        "orange": 150,
+        "brown": 100,
+        "silver": 0,
+        "red": 0
+    },
+    "recommended_price": 523,
+    "sentiment": {
+        "positive": 18,
+        "negative": 2,
+        "keywords": [
+            "clay",
+            "water",
+            "terracotta",
+            "natural",
+            "eco-friendly"
+        ]
+    }
+}

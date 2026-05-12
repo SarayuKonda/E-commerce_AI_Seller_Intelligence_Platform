@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Intel — AI Seller Intelligence</title>
+    <meta name="description" content="Build products that actually sell using real market data and AI. Solar Intel provides intelligence at scale.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" id="nav-brand">
+                <span class="brand-icon">☀</span>
+                <span class="brand-text">SOLAR INTEL</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#features" class="nav-link active" id="nav-product">Product</a></li>
+                <li><a href="#dashboard" class="nav-link" id="nav-market">Market Data</a></li>
+                <li><a href="#insights" class="nav-link" id="nav-insights">Insights</a></li>
+            </ul>
+            <button class="btn btn-nav" id="btn-get-started" onclick="scrollToSection('analyze')">Get Started</button>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <p class="hero-eyebrow">INTELLIGENCE AT SCALE</p>
+            <h1 class="hero-title">AI Seller<br>Intelligence</h1>
+            <p class="hero-description">Build products that actually sell using real market data and AI. Our atelier of data provides the warmth your business needs to grow.</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" id="btn-analyze" onclick="handleAnalyze()">Analyze Now</button>
+                <button class="btn btn-secondary" id="btn-demo" onclick="loadDemoData()">View Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ ANALYTICS SHOWCASE ═══════════ -->
+    <section class="showcase" id="showcase">
+        <div class="showcase-container">
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Modern workspace" id="showcase-img">
+            </div>
+            <div class="showcase-stat" id="showcase-stat">
+                <span class="stat-number" id="stat-number">98%</span>
+                <span class="stat-label">Prediction accuracy for seasonal demand trends.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ MARKET MASTERCLASSES ═══════════ -->
+    <section class="masterclass" id="masterclass">
+        <h2 class="section-title">Market<br>Masterclasses</h2>
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- ═══════════ FEATURES (01-03) ═══════════ -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="feature-card" id="feature-01">
+                <span class="feature-number">01</span>
+                <h3 class="feature-title">Enter Product Name</h3>
+                <p class="feature-desc">Define your niche or existing product. Our engine accepts everything from raw concepts to specific SKUs.</p>
+            </div>
+            <div class="feature-card" id="feature-02">
+                <span class="feature-number">02</span>
+                <h3 class="feature-title">Real-Time Analysis</h3>
+                <p class="feature-desc">The system scans across global commerce APIs, social mentions, and pricing trends to build a data tapestry.</p>
+            </div>
+            <div class="feature-card" id="feature-03">
+                <span class="feature-number">03</span>
+                <h3 class="feature-title">Get AI Insights</h3>
+                <p class="feature-desc">Receive a curated dashboard of actionable intelligence, pricing strategies, and feature prioritizations.</p>
+            </div>
+        </div>
+        <div class="features-cta">
+            <button class="btn btn-primary" id="btn-start-scan" onclick="handleAnalyze()">START YOUR FIRST SCAN</button>
+        </div>
+    </section>
+
+    <!-- ═══════════ ANALYZE SECTION ═══════════ -->
+    <section class="analyze-section" id="analyze">
+        <div class="analyze-container">
+            <h2 class="section-title">Begin Analysis</h2>
+            <div class="section-divider"></div>
+            <p class="analyze-subtitle">Enter a product name and let our AI do the heavy lifting.</p>
+            <div class="search-box" id="search-box">
+                <input type="text" class="search-input" id="search-input" placeholder="e.g. wireless mouse, water bottle, phone case...">
+                <button class="btn btn-primary search-btn" id="btn-search" onclick="triggerScrape()">
+                    <span class="btn-text">Analyze</span>
+                    <span class="btn-loader hidden" id="search-loader"></span>
+                </button>
+            </div>
+            <div class="status-msg hidden" id="status-msg"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ DASHBOARD ═══════════ -->
+    <section class="dashboard hidden" id="dashboard">
+        <div class="dashboard-container">
+            <h2 class="section-title">Market Intelligence</h2>
+            <div class="section-divider"></div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-row" id="kpi-row">
+                <div class="kpi-card" id="kpi-products">
+                    <span class="kpi-value" id="kpi-products-val">—</span>
+                    <span class="kpi-label">Products Scanned</span>
+                </div>
+                <div class="kpi-card" id="kpi-color">
+                    <span class="kpi-value" id="kpi-color-val">—</span>
+                    <span class="kpi-label">Best Color to Sell</span>
+                </div>
+                <div class="kpi-card" id="kpi-price">
+                    <span class="kpi-value" id="kpi-price-val">—</span>
+                    <span class="kpi-label">Recommended Price</span>
+                </div>
+            </div>
+
+            <!-- AI Insights -->
+            <div class="insights-panel" id="insights">
+                <h3 class="panel-title">🤖 AI Recommendation</h3>
+                <div class="insight-content" id="ai-insight-content">
+                    <p id="ai-reason">Loading insights...</p>
+                </div>
+                <div class="insight-badges" id="insight-badges"></div>
+            </div>
+
+            <!-- Products Grid -->
+            <h3 class="panel-title" id="products-heading">📦 Top Products</h3>
+            <div class="products-grid" id="products-grid"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand-icon">☀</span>
+                    <span>Solar Atelier Intelligence</span>
+                </div>
+                <div class="footer-credits">
+                    <p>Developed by <strong>Anna Vamsi Krishna Raja</strong></p>
+                    <div class="tech-stack">
+                        <span class="tech-label">TECHNOLOGY STACK</span>
+                        <p class="tech-tags">Next.js • Tailwind CSS • OpenAI API • Pinecone</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2024 SOLAR ATELIER INTELLIGENCE. DEFINED BY LIGHT.</p>
+                <ul class="footer-links">
+                    <li><a href="#">THE PRODUCT</a></li>
+                    <li><a href="#">EDITORIAL</a></li>
+                    <li><a href="#">ATELIER</a></li>
+                    <li><a href="#">TERMS</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════ AI STRATEGIST CHATBOT ═══════════ -->
+    <!-- Floating Trigger Button -->
+    <button class="chat-fab hidden" id="chat-fab" onclick="toggleChat()" title="Ask AI Strategist">
+        <span class="chat-fab-icon">🤖</span>
+        <span class="chat-fab-label">Ask AI Strategist</span>
+    </button>
+
+    <!-- Chat Panel (slide-in from right) -->
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-panel-header">
+            <div class="chat-header-info">
+                <span class="chat-header-icon">☀</span>
+                <div>
+                    <h3 class="chat-header-title">AI Strategist</h3>
+                    <p class="chat-header-sub" id="chat-product-label">Ready to help you sell</p>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <!-- Region & Audience Selector -->
+        <div class="chat-context-bar" id="chat-context-bar">
+            <div class="chat-context-field">
+                <label class="chat-context-label">Target Region</label>
+                <select class="chat-context-select" id="chat-region">
+                    <option value="Pan India">🇮🇳 Pan India</option>
+                    <option value="Telugu States (Andhra Pradesh & Telangana)">🌶 Telugu States (AP & Telangana)</option>
+                    <option value="Tamil Nadu">🏛 Tamil Nadu</option>
+                    <option value="Maharashtra">🌆 Maharashtra</option>
+                    <option value="North India (Delhi, UP, Punjab)">🏔 North India</option>
+                    <option value="Karnataka">🌿 Karnataka</option>
+                    <option value="Kerala">🌴 Kerala</option>
+                    <option value="West Bengal">🎭 West Bengal</option>
+                </select>
+            </div>
+            <div class="chat-context-field">
+                <label class="chat-context-label">Target Audience</label>
+                <select class="chat-context-select" id="chat-audience">
+                    <option value="General consumers (age 20-45)">General Consumers</option>
+                    <option value="Young adults & students (age 18-25)">Young Adults & Students</option>
+                    <option value="Homemakers & families">Homemakers & Families</option>
+                    <option value="Working professionals (age 25-40)">Working Professionals</option>
+                    <option value="Small business owners">Small Business Owners</option>
+                    <option value="Fitness enthusiasts">Fitness Enthusiasts</option>
+                    <option value="Rural & semi-urban buyers">Rural & Semi-Urban Buyers</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Messages area -->
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-welcome">
+                <p class="chat-welcome-text">I'm your AI Business Strategist, trained on your real market data. Ask me anything about selling this product.</p>
+            </div>
+        </div>
+
+        <!-- Starter chips -->
+        <div class="chat-chips" id="chat-chips">
+            <button class="chip" onclick="sendChip('Give me a full business plan to start selling this product in my region')">📋 Full Business Plan</button>
+            <button class="chip" onclick="sendChip('What is the best social media strategy for my target region and audience?')">📱 Social Media Strategy</button>
+            <button class="chip" onclick="sendChip('Give me Instagram Reel scripts and video prompts for this product. Include Midjourney mockup prompts.')">🎬 Video & Mockup Prompts</button>
+            <button class="chip" onclick="sendChip('Where and how do I manufacture or source this product in India? What is the cost breakdown?')">🏭 Sourcing & Manufacturing</button>
+            <button class="chip" onclick="sendChip('Give me a 30-day content calendar for Instagram and YouTube Shorts for my region')">📅 30-Day Content Calendar</button>
+            <button class="chip" onclick="sendChip('How should I price this product and structure my profit margins?')">💰 Pricing & Margins</button>
+        </div>
+
+        <!-- Input area -->
+        <div class="chat-input-area">
+            <textarea class="chat-input" id="chat-input" placeholder="Ask about strategy, social media, sourcing, pricing..." rows="1"></textarea>
+            <button class="chat-send-btn" id="chat-send" onclick="sendChat()">
+                <span id="chat-send-icon">➤</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat overlay (mobile) -->
+    <div class="chat-overlay hidden" id="chat-overlay" onclick="toggleChat()"></div>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
